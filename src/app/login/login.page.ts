@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
+  id: string;
+  mdp: string;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  login() {
+    
   }
 
 }
