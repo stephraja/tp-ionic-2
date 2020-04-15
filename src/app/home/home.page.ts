@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx'
 
+type Position = {
+  latitude: number
+  longitude: number
+}
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-
-type Position = {
-  latitude: number
-  longitude: number
-}
-
 export class HomePage {
 
   title: string;
@@ -28,5 +26,4 @@ export class HomePage {
       this.position.longitude = result.coords.longitude
     })
   }
-
 }
