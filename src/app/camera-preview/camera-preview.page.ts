@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview/ngx';
+
 
 @Component({
   selector: 'app-camera-preview',

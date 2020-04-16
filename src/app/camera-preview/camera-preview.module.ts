@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CameraPreview } from '@ionic-native/camera-preview/ngx';
+
 
 import { IonicModule } from '@ionic/angular';
 
@@ -15,6 +17,7 @@ import { CameraPreviewPage } from './camera-preview.page';
     IonicModule,
     CameraPreviewPageRoutingModule
   ],
-  declarations: [CameraPreviewPage]
+  declarations: [CameraPreviewPage],
+  providers: [CameraPreview]
 })
 export class CameraPreviewPageModule {}
