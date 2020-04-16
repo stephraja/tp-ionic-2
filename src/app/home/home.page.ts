@@ -13,7 +13,7 @@ type Position = {
 export class HomePage {
 
   title: string;
-  position: Position
+  position: Position[]
   constructor(private geolocation: Geolocation) {}
 
   public updateTitle(newTitle: string) {
@@ -22,8 +22,7 @@ export class HomePage {
 
   async getPosition() {
     await this.geolocation.getCurrentPosition().then((result: Geoposition) => {
-      this.position.latitude = result.coords.latitude
-      this.position.longitude = result.coords.longitude
+      this.position.push({latitude: result.coords.latitude, longitude: result.coords.longitude})
     })
   }
 }
