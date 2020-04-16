@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { Geolocation } from '@ionic-native/geolocation/ngx'
 
 import { HomePage } from './home.page';
 
@@ -10,7 +11,8 @@ describe('HomePage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot()],
+      providers: [Geolocation]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
@@ -18,18 +20,18 @@ describe('HomePage', () => {
     fixture.detectChanges();
   }));
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  //   expect(component.title).toBeUndefined();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+    expect(component.title).toBeUndefined();
+  });
 
-  // it('change title', () => {
-  //   component.title = 'Mon Titre'
-  //   expect(component.title).toBe('Mon Titre');
-  // })
+  it('change title', () => {
+    component.title = 'Mon Titre'
+    expect(component.title).toBe('Mon Titre');
+  })
 
-  // it('update title', () => {
-  //   component.updateTitle('Mon nouveau titre')
-  //   expect(component.title).toBe('Mon nouveau titre')
-  // })
+  it('update title', () => {
+    component.updateTitle('Mon nouveau titre')
+    expect(component.title).toBe('Mon nouveau titre')
+  })
 });
