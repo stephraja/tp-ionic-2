@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { filter } from 'rxjs/operators'
 
 type Position = {
   latitude: number
@@ -21,6 +22,15 @@ export class HomePage {
     this.title = newTitle
   }
 
+  ngOnInit(): void {
+    console.log('ngOnInit')
+    let watch = this.geolocation.watchPosition().pipe(filter((p) => p.coords !== undefined))
+    watch.subscribe((data) => {
+      console.log(data)
+      this.positions.push({ latitude: data.coords.latitude, longitude: data.coords.longitude })
+    })
+  }
+
   public notification1() {
     console.log('notification 1')
     this.notifications.schedule({
@@ -37,9 +47,4 @@ export class HomePage {
     })
   }
 
-  getPosition() {
-    this.geolocation.watchPosition().subscribe(obs => {
-      this.positions.push({ latitude: obs.coords.latitude, longitude: obs.coords.longitude })
-    })
-  }
 }
