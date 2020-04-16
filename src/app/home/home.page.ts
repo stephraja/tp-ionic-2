@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx'
+import { Geolocation } from '@ionic-native/geolocation/ngx'
 
 type Position = {
   latitude: number
@@ -13,16 +13,16 @@ type Position = {
 export class HomePage {
 
   title: string;
-  position: Position[]
+  positions: Position[]
   constructor(private geolocation: Geolocation) {}
 
   public updateTitle(newTitle: string) {
     this.title = newTitle
   }
 
-  async getPosition() {
-    await this.geolocation.getCurrentPosition().then((result: Geoposition) => {
-      this.position.push({latitude: result.coords.latitude, longitude: result.coords.longitude})
+  getPosition() {
+    this.geolocation.watchPosition().subscribe(obs => {
+      this.positions.push({ latitude: obs.coords.latitude, longitude: obs.coords.longitude })
     })
   }
 }
