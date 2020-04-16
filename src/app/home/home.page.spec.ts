@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 import { HomePage } from './home.page';
 
@@ -12,7 +13,7 @@ describe('HomePage', () => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
       imports: [IonicModule.forRoot()],
-      providers: [Geolocation]
+      providers: [Geolocation, LocalNotifications]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);

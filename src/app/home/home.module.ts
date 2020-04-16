@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx'
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { HomePage } from './home.page';
 
 @NgModule({
@@ -20,6 +21,6 @@ import { HomePage } from './home.page';
     ])
   ],
   declarations: [HomePage],
-  providers: [Geolocation]
+  providers: [Geolocation, LocalNotifications]
 })
 export class HomePageModule {}

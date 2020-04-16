@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx'
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 type Position = {
   latitude: number
@@ -14,10 +15,26 @@ export class HomePage {
 
   title: string;
   positions: Position[]
-  constructor(private geolocation: Geolocation) {}
+  constructor(private geolocation: Geolocation, private notifications: LocalNotifications) {}
 
   public updateTitle(newTitle: string) {
     this.title = newTitle
+  }
+
+  public notification1() {
+    console.log('notification 1')
+    this.notifications.schedule({
+      id: 1,
+      text: 'Notification 1'
+    })
+  }
+
+  public notification2() {
+    console.log('notification 2')
+    this.notifications.schedule({
+      id: 2,
+      text: 'Notification 2'
+    })
   }
 
   getPosition() {
